@@ -1,0 +1,17 @@
+services:
+  matejadb:
+    image: mysql:9.0
+    volumes:
+      - 'c:/data/mysql-c:/var/lib/mysql'
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123456
+    ports:
+    - 3306:3306
+
+  matejadmin:
+    image: adminer
+    depends_on:
+      - matejadb
+    ports:
+    - 8080:8080
+    
